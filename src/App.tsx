@@ -1,11 +1,16 @@
-import React from "react";
-import  {Post}  from './components/post/Post';
 
-// Exportação padrão
+import { Albums } from './components/albums/Albums';
+import { Post } from './components/post/Post';
+
+
 const App = () => {
   return (
     <>
-      <Post />
+    
+
+    <Post/>
+    <Albums/>
+
     </>
   );
 };
