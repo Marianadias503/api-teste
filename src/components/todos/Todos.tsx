@@ -9,7 +9,7 @@ export const Todos = () => {
   interface TodosData {
     userId: number;
     id: number;
-    title: string; // Corrigido para string sem aspas
+    title: string;
     completed: boolean;
   }
 
