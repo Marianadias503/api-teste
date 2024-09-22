@@ -1,38 +1,7 @@
 // src/components/post/styles.ts
 import styled from 'styled-components';
 
-export const Header = styled.div`
-  background-color: #000000; // Cor de fundo preta
-  color: #ffffff; // Cor do texto branca (opcional)
-  padding: 20px; // Espaçamento interno (opcional)
-  text-align: center; // Centraliza o texto (opcional)
-  font-size:2rem;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-left:0%;
-  
-  
-`;
 
-export const AlbumsTodos = styled.div`
-  font-size:1.5rem;
-  color:#FF0000;
-  
-
-
-
-`;
-export const OutrasApi = styled.div`
-display:grid;
-grid-template-columns: 1fr 1fr;
-align-items:center;
-margin-left:25rem;
-width:100%;
-
-
-
-
-`;
 
 
 
@@ -47,6 +16,12 @@ export const Title = styled.div`
  font-weight:bold;
 
 `;
+export const PostBody= styled.div`
+ 
+margin: 1.5rem;
+
+
+`
 export const TodosStyle = styled.div`
 
 background-color: #A9A9A9;
@@ -57,6 +32,18 @@ margin-bottom:2rem;
 strong{
     font-family: 'Mulish", sans-serif';
     padding: 3rem;
+    
+    @media (max-width: 768px) {
+       padding:0
+}  
 };
+
+@media (max-width: 768px) {
+
+margin:5px;
+margin-bottom:1rem;
+
+
+}
 
 `;

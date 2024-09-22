@@ -1,6 +1,8 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
-import { AlbumsTodos, Header, OutrasApi, Title, TodosStyle } from "./styles";
+import { Title, TodosStyle } from "./styles";
+import { PostBody } from "../post/styles";
+import {api} from '../../Axios/axios';
 
 
 // Definindo o componente Todos
@@ -18,12 +20,10 @@ export const Todos = () => {
   const [loading, setLoading] = useState<boolean>(true); // Indica que 'todos' está sendo carregado
   const [error, setError] = useState<string | null>(null); // Armazena mensagens de erro
 
-  // Função para buscar dados da API
+  // Função para buscar dados da API 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get<TodosData[]>(
-        'https://jsonplaceholder.typicode.com/todos'
-      ); // Corrigido para array de TodosData
+      const response = await api.get<TodosData[]>('/todos'); 
       setTodos(response.data); // Atualiza o estado com os dados recebidos
     } catch (err) {
       setError('Erro ao carregar todos'); // Mensagem de erro, caso aconteça
@@ -39,16 +39,11 @@ export const Todos = () => {
 
   return (
     <div>
-       <Header>
-        Return Api
-        <OutrasApi>
-
-        <AlbumsTodos > Albums </AlbumsTodos>
-        <AlbumsTodos> Todos </AlbumsTodos>
-        </OutrasApi>
-      </Header> {/* Componente Header estilizado */}
-
+     
       <Title>Retorno de Todos</Title>
+
+    <PostBody>
+
 
       {loading && <p>Carregando todos...</p>} {/* Exibe a mensagem de carregamento */}
       {error && <p>{error}</p>} {/* Exibe mensagem de erro caso aconteça */}
@@ -62,7 +57,10 @@ export const Todos = () => {
            
           </TodosStyle>
         </div>
+      
       ))}
+      
+      </PostBody>
     </div>
   );
 };

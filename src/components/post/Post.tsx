@@ -1,8 +1,7 @@
 // src/components/post/Post.tsx
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Header, Title, Posts, AlbumsTodos, OutrasApi} from './styles'; // Importa o componente estilizado Header
-
+import { Title, Posts, PostBody} from './styles';
+import {api} from '../../Axios/axios';
 // Definindo a interface para a estrutura dos posts
 interface PostData {
   userId: number;
@@ -21,7 +20,7 @@ export const Post = () => {
   // Função para buscar dados da API
   const fetchPosts = async () => {
     try {
-      const response = await axios.get<PostData[]>('https://jsonplaceholder.typicode.com/posts');
+      const response = await api.get<PostData[]>('/posts');
       setPosts(response.data); // Atualiza o estado com os dados que estão armazenados em 'response'
     } catch (err) {
       setError('Erro ao carregar posts'); // Em caso de erro, atualiza o 'setError'
@@ -38,21 +37,10 @@ export const Post = () => {
   // Renderizando o componente (mostrando os posts)
   return (
     <>
-      <Header>
-        Return Api
-        <OutrasApi>
 
-        <AlbumsTodos > Albums </AlbumsTodos>
-        <AlbumsTodos> Todos </AlbumsTodos>
-        </OutrasApi>
-
-       
-          
-        
-      </Header> {/* Componente Header estilizado */}
       <Title>Retorno dos posts</Title>
       
-      <div>
+      <PostBody >
         {loading && <p>Carregando...</p>} {/* Exibe uma mensagem de carregamento enquanto os dados estão sendo buscados */}
         {error && <p>{error}</p>} {/* Exibe uma mensagem de erro se houver algum */}
         {posts.map(post => (
@@ -66,7 +54,7 @@ export const Post = () => {
           
           </div>
         ))}
-      </div>
+      </PostBody>
     </>
   );
 };

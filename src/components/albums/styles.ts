@@ -13,6 +13,12 @@ export const Header = styled.div`
   
   
 `;
+export const PostBody= styled.div`
+ 
+margin:1.5rem;
+
+
+`
 
 export const AlbumsTodos = styled.div`
   font-size:1.5rem;
@@ -46,6 +52,8 @@ export const Title = styled.div`
  font-size:2rem;
  font-weight:bold;
 
+
+
 `;
 export const AlbumsStyle = styled.div`
 
@@ -57,6 +65,16 @@ margin-bottom:2rem;
 strong{
     font-family: 'Mulish", sans-serif';
     padding: 3rem;
-};
+    @media (max-width: 768px) {
 
+padding:0
+}
+};
+@media (max-width: 768px) {
+
+margin:5px;
+margin-bottom:1rem;
+
+
+}
 `;

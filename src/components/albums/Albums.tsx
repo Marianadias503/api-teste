@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from 'axios';
 import { Title } from "../post/styles"; // Certifique-se de que o caminho está correto
-import { AlbumsStyle, AlbumsTodos, Header, OutrasApi } from "./styles";
-
+import { AlbumsStyle, PostBody } from "./styles";
+import {api} from '../../Axios/axios';
 // Interface para estrutura dos albums
 interface AlbumsData {
   userId: number;
@@ -20,7 +19,7 @@ export const Albums = () => {
   // Função para buscar os dados da API
   const fetchAlbums = async () => {
     try {
-      const response = await axios.get<AlbumsData[]>('https://jsonplaceholder.typicode.com/albums');
+      const response = await api.get<AlbumsData[]>('/albums');
       setAlbums(response.data); // Atualiza o estado com os dados armazenados no 'response'
     } catch (err) {
       setError('Erro ao carregar albums'); // Em caso de erro, carrega essa mensagem
@@ -37,18 +36,10 @@ export const Albums = () => {
   // Mostrando os 'albums'
   return (
     <>
-        <Header>
-        Return Api
-        <OutrasApi>
-
-        <AlbumsTodos > Albums </AlbumsTodos>
-        <AlbumsTodos> Todos </AlbumsTodos>
-        </OutrasApi>
-      </Header> {/* Componente Header estilizado */}
-
+    
       <Title>Retorno dos Albums</Title>
 
-      <div>
+      <PostBody>
         {loading && <p>Carregando albums...</p>} {/* Exibe a mensagem de carregamento */}
         {error && <p>{error}</p>} {/* Exibe mensagem de erro caso tenha */}
         {albums.map((album) => (
@@ -62,7 +53,7 @@ export const Albums = () => {
 
           </div>
         ))}
-      </div>
+      </PostBody>
     </>
   );
 };
