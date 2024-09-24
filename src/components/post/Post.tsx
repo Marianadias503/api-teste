@@ -1,11 +1,13 @@
 // src/components/post/Post.tsx
 import { Title, Posts, PostBody} from './styles';
 import usePost from './hook/usePost';
-// Definindo a interface para a estrutura dos posts
+
 
 // Definindo como uma constante de função e exportando
 export const Post = () => {
  const {posts,loading,error} = usePost();
+
+
   // Renderizando o componente (mostrando os posts)
   return (
     <>
@@ -30,3 +32,4 @@ export const Post = () => {
     </>
   );
 };
+
