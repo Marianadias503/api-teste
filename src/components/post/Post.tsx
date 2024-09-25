@@ -6,7 +6,6 @@ import FilteredList from '../../Busca/filteredList';
 // Definindo como uma constante de função e exportando
 export const Post = () => {
  const {posts,loading,error} = usePost();
- 
  //função para renderizar cada post
  const renderPost = (post: {id:number;title:string; userId:number; body: string})=>(
   //retorno
