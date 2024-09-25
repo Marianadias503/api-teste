@@ -16,6 +16,7 @@ export const Header = styled.div`
  export const PostBody= styled.div`
  
  margin:1.5rem;
+ margin-right:3rem;
 
  
  `

@@ -18,7 +18,7 @@ const [error, setError] = useState<string | null>(null); // Armazena mensagens d
 // Função para buscar dados da API
 const fetchPosts = async () => {
   try {
-    const response = await api.get<PostData[]>('/post');
+    const response = await api.get<PostData[]>('/posts');
     setPosts(response.data); // Atualiza o estado com os dados que estão armazenados em 'response'
   } catch (err) {
     setError('Erro ao carregar posts'); // Em caso de erro, atualiza o 'setError'
